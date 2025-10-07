@@ -16,7 +16,7 @@ Voeg commentaar toe om je code toe te lichten.
 """
 
 
-def standaardprijs(afstandKM):
+def standaardprijs(afstandKM1):
     """
     Bepaal de prijs van een treinrit. Iedere treinrit kost 80 cent per kilometer,
     maar als de rit langer is dan 50 kilometer betaal je een vast bedrag van €15,-
@@ -26,18 +26,18 @@ def standaardprijs(afstandKM):
     0 kilometer (prijs is dan dus 0 Euro).
 
     Args:
-        afstandKM (int): De reisafstand in kilometers.
+        afstandKM1 (int): De reisafstand in kilometers.
     Returns:
         float: De berekende standaardprijs.
     """
-    if afstandKM <= 0:
+    if afstandKM1 <= 0:
         return 0
 
-    elif 0 < afstandKM <= 50:
-        prijs = (afstandKM * 0.80)
+    elif 0 < afstandKM1 <= 50:
+        prijs = (afstandKM1 * 0.80)
 
     else:
-        prijs = (15 + (afstandKM * 0.60))
+        prijs = (15 + (afstandKM1 * 0.60))
 
     return prijs
 
@@ -75,6 +75,7 @@ def ritprijs(leeftijd, weekendrit, afstandKM):
             prijs = prijs * 0.6
 
     return prijs
+
 
 
 def development_code():

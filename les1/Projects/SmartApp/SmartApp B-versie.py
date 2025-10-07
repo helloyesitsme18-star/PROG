@@ -19,7 +19,7 @@ def weerrapport(temp_celcius, windsnelheid, luchtvochtigheid):
         return "Het is een beetje koud, elektrische kachel op de benedenverdieping aan!"
     elif 10 <= gt < 22:
         return "Heerlijk weer, niet te koud of te warm."
-    return "Warm! Airco aan!"
+    return (f"Warm! Airco aan!{gt}")
 
 
 def weerstation():
