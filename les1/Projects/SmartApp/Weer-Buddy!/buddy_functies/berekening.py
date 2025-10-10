@@ -6,20 +6,20 @@ def aantal_dagen(inputFile):
             dagen = len(regels) - 1
             return dagen
 
-    except FileNotFoundError:  #Als het deze foutmelding geeft crasht het bestand niet hierdoor en returnt hij -1
+    except FileNotFoundError:  #Als het deze foutmelding geeft crasht het bestand niet, hierna returnt hij -1
         return -1
 
 def auto_bereken(inputFile, outputFile):
-    
+
 
     with open(inputFile, 'r') as bestand1:
         regel = bestand1.readlines()[1:] #slaat de headerregel over dmv indexeren
 
     with open(outputFile, 'w') as bestand2:
         for dag in regel:
-            data = dag.strip().split()
+            data = dag.strip().split() #.split() zorgt voor een lijst
 
-            datum = data[0]
+            datum = data[0]  #indexeren op de lijst
             numPeople = int(data[1])
             tempSetpoint = float(data[2])
             tempOutside= float(data[3])

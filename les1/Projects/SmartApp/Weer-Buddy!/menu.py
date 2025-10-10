@@ -17,7 +17,7 @@ def smart_app_controller():
                                                                                                    ░███████      
                                                                                                                  """)
 
-    print('Welkom bij Weer-Buddy, je handigste buddy voor in huis! ')
+    print('Welkom bij Weer-Buddy, de handigste buddy-app voor in huis! ')
 
 
     while True:

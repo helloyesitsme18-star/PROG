@@ -8,9 +8,15 @@ def overwrite_settings(outputFile):
         return None
 
     user_datum = input('Voer een datum in (dd-mm-yyyy): ')
-    print('1. CV Ketel instellen\n2. Ventilatie instellen\n 3. Bewatering instellen')
+    print('1. CV Ketel instellen\n2. Ventilatie instellen\n3. Bewatering instellen')
     keuze_menu = input('Maak uw keuze: ')
-    aanpassing = input('Geef een nieuwe waarde op: ')
+
+    if keuze_menu == '1':
+        aanpassing == input('Geef een nieuwe waarde op (0-100): ')
+    if keuze_menu == '2':
+        aanpassing = input('Geef een nieuwe waarde op (MAX: 4): ')
+    if keuze_menu == '3':
+        aanpassing == input('Geef een nieuwe waarde op (0-1): ')
 
 
     nieuw = []

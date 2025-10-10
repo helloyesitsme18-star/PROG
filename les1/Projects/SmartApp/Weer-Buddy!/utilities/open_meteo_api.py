@@ -9,5 +9,5 @@ def weer_utrecht():
         return data['current_weather']
 
     except:
-        print("Er ging iets mis in het proces, ons excuses!")
+        print("Er ging iets mis in het proces, ons excuus!")
         return None
