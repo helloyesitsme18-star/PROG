@@ -8,11 +8,19 @@ def overwrite_settings(outputFile):
         return None
 
     user_datum = input('Voer een datum in (dd-mm-yyyy): ')
-    print('1. CV Ketel instellen\n2. Ventilatie instellen\n3. Bewatering instellen')
-    keuze_menu = input('Maak uw keuze: ' + '\n')
+
+    while True:
+        print('1. CV Ketel instellen\n2. Ventilatie instellen\n3. Bewatering instellen')
+        keuze_menu = input('Maak uw keuze: ')
+
+        if keuze_menu in ['1', '2', '3']:
+            break
+        else:
+            print('Ongeldige keuze, probeer opnieuw.')
 
     while True:
         try:
+
             if keuze_menu == '1':
                 aanpassing = input('Geef een nieuwe waarde op (0-100): ')
 
@@ -36,6 +44,7 @@ def overwrite_settings(outputFile):
                     break
                 else:
                     print('Waarde buiten bereik, probeer opnieuw.')
+
         except ValueError:
             print('Ongeldige type invoer, probeer opnieuw.')
 
