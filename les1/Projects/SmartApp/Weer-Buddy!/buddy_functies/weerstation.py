@@ -73,3 +73,4 @@ def weerstation():
         print(weerrapport(temp_celsius, windsnelheid, luchtvochtigheid))
         print(f'De gemiddelde temperatuur is vandaag {gem_temp:.1f}C')
         print("=======================================================================")
+

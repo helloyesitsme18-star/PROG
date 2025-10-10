@@ -23,26 +23,30 @@ def smart_app_controller():
     while True:
         print("=======================================================================")
         print('\nMaak uw keuze: ')
-        print('1. Aantal dagen tellen met opgeslagen data')
-        print('2. Aanbevolen instellingen berekenen')
-        print('3. Instellingen handmatig overschrijven')
-        print('4. Huidige weer in Utrecht')
-        print('5. Programma afsluiten')
+        print('1. Weerstation')
+        print('2. Aantal dagen tellen met opgeslagen data')
+        print('3. Aanbevolen instellingen berekenen')
+        print('4. Instellingen handmatig overschrijven')
+        print('5. Huidige weer in Utrecht')
+        print('6. Programma afsluiten')
 
-        keuze = input('Maak uw keuze (1-5): ').strip()
+        keuze = input('Maak uw keuze (1-6): ').strip()
+
 
         if keuze == '1':
+            weerstation()
+        elif keuze == '2':
             resultaat = aantal_dagen(inputFile)
             if resultaat == -1:
                 print('Het bestand kon niet worden gevonden.')
             else:
                 print(f'Aantal dagen in het bestand: {resultaat}')
 
-        elif keuze == '2':
+        elif keuze == '3':
             auto_bereken(inputFile, outputFile)
             print(f'Automatische berekening voltooid. Resultaat opgeslagen in {outputFile}.')
 
-        elif keuze == '3':
+        elif keuze == '4':
             resultaat = overwrite_settings(outputFile)
             if resultaat == 0:
                 print('Instelling succesvol aangepast.')
@@ -51,7 +55,7 @@ def smart_app_controller():
             elif resultaat == -3:
                 print('Ongeldige invoer of keuze.')
 
-        elif keuze == '4':
+        elif keuze == '5':
             weer = weer_utrecht()
 
             if weer:
@@ -63,7 +67,7 @@ def smart_app_controller():
                 print('Weerdata niet gevonden.')
 
 
-        elif keuze == '5':
+        elif keuze == '6':
             print('Programma afgesloten.')
             break
 
