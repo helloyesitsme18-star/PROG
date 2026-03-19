@@ -86,7 +86,6 @@ def aantal_dagen(inputFile):
         print('Geen bestand gevonden.')
         return -1
 
-
 def auto_bereken(inputFile, outputFile):
 
     with open(inputFile, 'r') as bestand1:

@@ -5,7 +5,7 @@ c = (a+b)/2
 voornaam = 'Athucca'
 achternaam = 'Le'
 
-print(len(voornaam))
+#print(len(voornaam))
 print((a) < 6.75 < (b))
 
 mijnnaam = (voornaam + ' ' + achternaam)

@@ -29,26 +29,23 @@ def new_password(oldpassword, newpassword):
     Returns:
         bool: True als het nieuwe password voldoet aan de eisen, anders False
     """
-    eis1 = oldpassword != newpassword
+    eis1 = newpassword != oldpassword
     eis2 = len(newpassword) >= 6
-    eis3 = False
-    cijfers = ['0', '1',  '2', '3', '4', '5', '6', '7', '8', '9', '0']
+    eis3= False
+
+    cijfers = ['0', '1', '2', '3','4','5','6','7','8','9',]
     for getal in newpassword:
         if getal in cijfers:
             eis3 = True
             break
+
+
     eisen_ok = eis1 and eis2 and eis3
     return eisen_ok
-
-
-
 
 def development_code():
     # Plaats hieronder eventueel code om je functies tussentijds te testen. Bijv:
     print("Het nieuwe wachtwoord ('geheim') voldoet: ", new_password('geheim', 'geheim'))
-
-
-
 
 
 def module_runner():

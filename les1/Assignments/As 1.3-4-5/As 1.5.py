@@ -1,4 +1,4 @@
 favorieten = ['Lil Tecca']
 favorieten.append('Sleepy Hallow')
-favorieten[1] = 'Daniel Caesar'
+favorieten[0] = 'Daniel Caesar'
 print(favorieten)

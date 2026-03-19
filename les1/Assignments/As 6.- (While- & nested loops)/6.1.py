@@ -36,17 +36,22 @@ def analyzer(integerstring):
         tuple: met daarin de berekende waarden zoals hierboven beschreven
     """
     getallen = []
+    teller = 0
+
     for getal in integerstring.split('-'):
 
+        teller += 1
         getallen.append(int(getal))
+
 
     gesorteerd = sorted(getallen)
     grootste = gesorteerd[-1]
     kleinste = gesorteerd[0]
-
+    aantal = teller
     a = sum(getallen)
+    gem = a/aantal
 
-    print(gesorteerd, grootste, kleinste, a)
+    return(gesorteerd, grootste, kleinste, aantal, a, gem )
 
 
    # return (gesorteerd, )
