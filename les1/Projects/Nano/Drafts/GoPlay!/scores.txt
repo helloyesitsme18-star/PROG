@@ -1,0 +1,5 @@
+a, plant, 10
+nr4, water, 8
+thuc2, peer, 7
+final3, fietspad, 6
+noobie123, stoel, 4

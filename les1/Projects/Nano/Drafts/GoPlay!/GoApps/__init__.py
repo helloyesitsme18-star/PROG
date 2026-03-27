@@ -1,0 +1,2 @@
+from .Galgje1 import lees_woorden, sla_woorden_op, bereken_score, voeg_score_toe, toon_tussenstand, kies_woord, speelsessie, menu
+from .Raadhetgetal import genereer_getal, score, max_pogingen, raad_het_nummer, advies_moeilijkheidsgraad

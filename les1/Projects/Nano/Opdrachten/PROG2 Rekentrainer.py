@@ -39,7 +39,32 @@ def rekensessie(bewerking, aantal, min, max):
     Returns:
         int: het aantal correct gegeven antwoorden
     """
-    return
+    teller_correct = 0 # teller om correct_antwoord bij te houden
+
+    for som in range(aantal): #gaat tot en met aantal door, begint bij 0
+        getal1 = random.randint(min, max)
+        getal2 = random.randint(min, max)
+
+        if bewerking == '-':  #vaststellen wat de bewerking is
+            correct_antwoord = getal1 - getal2
+        elif bewerking == '+':
+            correct_antwoord = getal1 + getal2
+        elif bewerking == '*':
+            correct_antwoord = getal1 * getal2
+
+        antwoord = int(input(f'{getal1} {bewerking} {getal2} = '))
+
+        if antwoord == correct_antwoord:
+            teller_correct += 1
+            regel = f'{getal1};{bewerking};{getal2};{correct_antwoord};{antwoord};goed\n'
+        else:
+            regel = f'{getal1};{bewerking};{getal2};{correct_antwoord};{antwoord};fout\n'
+
+        with open('resultaten.txt', 'a') as bestand:   #dit buiten de if-condities anders schrijft hij alleen in de else
+            bestand.write(regel)
+
+    print(f'{teller_correct} van {aantal} goed!')
+    return teller_correct
 
 
 def foutrapport():
@@ -52,7 +77,16 @@ def foutrapport():
     Returns:
         list: een lijst met alle opgestelde foutmeldingen (strings)
     """
-    return
+    foutlist = []
+
+    with open('resultaten.txt', 'r') as bestand:
+        for regel in bestand:
+            regel = regel.strip()
+            som = regel.split(';')
+            if som[5] == 'fout':
+                foutlist.append(f'{som[0]} {som[1]} {som[2]} is helaas geen {som[4]}')
+
+    return foutlist
 
 
 def reset():
@@ -62,17 +96,60 @@ def reset():
     Returns:
         None
     """
+    with open('resultaten.txt', 'w') as bestand:
+        pass
+
     return
 
 
 def main():
     # Breid deze code uit om het keuzemenu te realiseren:
     print("1: Nieuwe rekensessie")
+    print('2: Foutrapport')
+    print('3: Reset')
+    while True:
+        try:
+            keuze = int(input('Maak je keuze (1-3): '))
+            if keuze != 1 and keuze != 2 and keuze != 3:
+              raise ValueError
+            else:
+                break
+        except ValueError:
+            continue
+
+    if keuze == 1:
+        bewerking = input('Welke bewerking? (+,-,*): ')
+        bewerking = bewerking.strip("'")
+        aantal = int(input('Aantal (1-50): '))
+        graad = input('Makkelijk/Moeilijk:')
+        if graad == 'makkelijk':
+            min = 0
+            max = 10
+        else:
+            min = 0
+            max = 50
+        rekensessie(bewerking, aantal, min, max)
+
+    if keuze == 2:
+        rapport = foutrapport()
+        for regel in rapport:
+            print(regel)
+
+
+    if keuze == 3:
+        confirm = input('Weet u zeker dat u het bestand wilt wissen? (ja/nee): ')
+        if confirm == 'ja':
+            reset()
+            print('Inhoud bestand gewist.')
+        else:
+            print('Start programma opnieuw om door te gaan')
 
 
 def module_runner():
     main()              # Comment deze regel om je 'main() functie' uit te schakelen
-    __run_tests()       # Comment deze regel om de HU-tests uit te schakelen
+    #__run_tests()       # Comment deze regel om de HU-tests uit te schakelen
+
+
 
 
 """
